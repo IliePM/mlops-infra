@@ -2,4 +2,4 @@ prometheus:
   service:
     type: NodePort
     nodePorts:
-      http: <PROMETHEUS-PORT>
+      http: 30909

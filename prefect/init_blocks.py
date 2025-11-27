@@ -15,9 +15,9 @@ k8s_config = KubernetesClusterConfig.from_file(
 
 infra_k8s = KubernetesJob(
     env={
-        'PREFECT_API_URL': 'http://<CLUSTER-IP>:<PREFECT-API-PORT>/api',
+        'PREFECT_API_URL': 'http://192.168.49.2:30420/api',
         'EXTRA_PIP_PACKAGES': 's3fs==2023.4.0',
-        'FSSPEC_S3_ENDPOINT_URL': 'http://<S3-IP>:<S3-PORT>'
+        'FSSPEC_S3_ENDPOINT_URL': 'http://192.168.49.2:9000'
     },
     image="prefecthq/prefect:2.10.4-python3.11",
     namespace="mlops-prefect",

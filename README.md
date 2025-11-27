@@ -52,7 +52,7 @@ Versions:
 
   `helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/`  
   
-  `helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner --set nfs.server=<CLUSTER-IP> --set nfs.path=/mnt/nfs_share --version 4.0.18`  
+  `helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner --set nfs.server=192.168.49.2 --set nfs.path=/mnt/nfs_share --version 4.0.18`  
   
   `kubectl patch storageclass nfs-client -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'`
 
@@ -75,7 +75,7 @@ Versions:
 
   `kubectl apply -f mlflow/deployment.yaml`
 
-- Deploy service and nodeport, making mlflow UI accesible at `http://<CLUSTER-IP>:<MLFLOW-PORT>/`
+- Deploy service and nodeport, making mlflow UI accesible at `http://192.168.49.2:30500/`
 
   `kubectl apply -f mlflow/service.yaml`
   
@@ -152,7 +152,7 @@ Versions:
 
   `prefect profile use 'server' `   
 
-  `prefect config set PREFECT_API_URL="http://<CLUSTER-IP>:<PREFECT-API-PORT>/api"`
+  `prefect config set PREFECT_API_URL="http://192.168.49.2:30420/api"`
 
 ### Create useful blocks
 
@@ -170,7 +170,7 @@ Versions:
   
   `cd prefect/test-flow`
 
-  `export FSSPEC_S3_ENDPOINT_URL=http://<S3-IP>:<S3-PORT>`
+  `export FSSPEC_S3_ENDPOINT_URL=http://192.168.49.2:9000`
 
   `prefect deployment build -n test-flow-deployment-k8s -p k8s-pool -ib kubernetes-job/k8s-infra -sb s3/khaos-minio -o test_flow_deployment.yaml test_flow.py:flow`  
 

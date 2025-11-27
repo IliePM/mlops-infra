@@ -21,9 +21,9 @@ manifest_path: null
 infrastructure:
   type: kubernetes-job
   env:
-    PREFECT_API_URL: http://<CLUSTER-IP>:<PREFECT-API-PORT>/api
+    PREFECT_API_URL: http://192.168.49.2:30420/api
     EXTRA_PIP_PACKAGES: s3fs==2023.4.0
-    FSSPEC_S3_ENDPOINT_URL: http://<S3-IP>:<S3-PORT>
+    FSSPEC_S3_ENDPOINT_URL: http://192.168.49.2:9000
   labels: {}
   name: null
   command: null

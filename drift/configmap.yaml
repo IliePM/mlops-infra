@@ -4,5 +4,5 @@ metadata:
   name: drift-configmap
   namespace: mlops-drift
 data:
-  MLFLOW_TRACKING_URI: "http://<CLUSTER-IP>:<MLFLOW-PORT>"
-  KAFKA_BOOTSTRAP_SERVERS: "<CLUSTER-IP>:<KAFKA-SERVICE-PORT>"
+  MLFLOW_TRACKING_URI: "http://192.168.49.2:30500"
+  KAFKA_BOOTSTRAP_SERVERS: "192.168.49.2:your_kafka_service_port"

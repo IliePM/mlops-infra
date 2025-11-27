@@ -11,4 +11,4 @@ spec:
     - name: ''
       protocol: TCP
       port: 5000
-      nodePort: <MLFLOW-PORT>
+      nodePort: 30500

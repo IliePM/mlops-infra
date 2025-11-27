@@ -1,7 +1,7 @@
 service:
   type: NodePort
   nodePorts:
-    external: "<KAFKA-SERVICE-PORT>" 
+    external: "your_kafka_service_port" 
 externalAccess:
   enabled: true
   autoDiscovery:
@@ -10,9 +10,9 @@ externalAccess:
     service:
       type: NodePort
       nodePorts: 
-        - <KAFKA-CONTROLLER-PORT-1>
-        - <KAFKA-CONTROLLER-PORT-2>
-        - <KAFKA-CONTROLLER-PORT-3>
+        - your_kafka_controller_1_port
+        - your_kafka_controller_2_port
+        - your_kafka_controller_3_port
 listeners:
   external:
     protocol: PLAINTEXT
