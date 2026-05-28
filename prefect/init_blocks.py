@@ -4,8 +4,8 @@ from prefect.infrastructure.kubernetes import KubernetesJob
 
 minio_creds = S3(
     bucket_path="***REMOVED***/prefect",
-    aws_access_key_id="USERNAME",
-    aws_secret_access_key="PASSWORD"
+    aws_access_key_id="minioadmin",
+    aws_secret_access_key="minioadminpassword"
 )
 
 k8s_config = KubernetesClusterConfig.from_file(
@@ -17,7 +17,7 @@ infra_k8s = KubernetesJob(
     env={
         'PREFECT_API_URL': 'http://192.168.49.2:30420/api',
         'EXTRA_PIP_PACKAGES': 's3fs==2023.4.0',
-        'FSSPEC_S3_ENDPOINT_URL': 'http://192.168.49.2:9000'
+        'FSSPEC_S3_ENDPOINT_URL': 'http://minio.mlops-s3.svc.cluster.local:9000'
     },
     image="prefecthq/prefect:2.10.4-python3.11",
     namespace="mlops-prefect",
