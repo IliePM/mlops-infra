@@ -3,15 +3,14 @@ from prefect.filesystems import S3
 from prefect.infrastructure.kubernetes import KubernetesJob
 
 minio_creds = S3(
-    bucket_path="***REMOVED***/prefect",
+    bucket_path="bucket/prefect",
     aws_access_key_id="minioadmin",
     aws_secret_access_key="minioadminpassword"
 )
 
 k8s_config = KubernetesClusterConfig.from_file(
     path="~/.kube/config",
-    context_name="kubernetes-admin@kubernetes"
-)
+    context_name="minikube"
 
 infra_k8s = KubernetesJob(
     env={
